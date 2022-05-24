@@ -3,14 +3,10 @@
 let a = 16807
 let c = 0
 let m = 2147483647
---the algo signatur
-algo :: Int -> Int -> Int
 
---the actuall algo 
-algo n prevNumb = 
-    do 
-        let out = a * prevNumb + c  `mod` m
-        algo(n-1, out)
+algo :: Int -> Int 
+| n == 0 = 
+| a * algo(n-1, out) + c  `mod` m
 
 main = do
 
