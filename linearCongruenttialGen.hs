@@ -4,16 +4,17 @@ a = 16807
 c = 0
 m = 2147483647
 
-algo :: Int -> Int 
-    | n == 0
-    out = a * algo(n-1, out) + c  `mod` m
+algo:: (Num a) => a -> a -> a 
+algo n x
+   | n == 0 = a * x + c `mod` m
+   | x = a * algo(n-1, x) + c  `mod` m
 
 --taking the user seed for X this would need to be replaced by something unpredictable and not the user input
+p = do
+    xString <- getLine
+    let x = read xString :: Int
+    -- how many cicles you want
 
-xString <- getLine
-let x = read xString :: Int
--- how many cicles you want
-
-iString <- getLine
-let i = read xString :: Int
-print(algo x i)
+    iString <- getLine
+    let i = read xString :: Int
+    print(algo x i)
